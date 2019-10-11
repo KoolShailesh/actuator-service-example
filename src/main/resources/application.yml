@@ -1,0 +1,18 @@
+server:
+  port: 9000
+  
+management:
+  server:
+    address: 127.0.0.1
+    port: 9001
+  endpoint:
+    beans:
+      enabled: true
+    health:
+      show-details: always
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include:
+        - "*"
