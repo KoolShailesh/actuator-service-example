@@ -1,4 +1,4 @@
-package com.example.actuatorservice;
+package com.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +13,10 @@ import org.springframework.boot.actuate.metrics.MetricsEndpoint.ListNamesRespons
 import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricResponse;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint.Sample;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class ActuatorApplication {
 
 	@Autowired
@@ -29,14 +31,14 @@ public class ActuatorApplication {
 
 		ListNamesResponse listNames = metricsEndpoint.listNames();
 
-		listNames.getNames().stream().forEach(System.out::println);//NOSONAR
+		listNames.getNames().stream().forEach(System.out::println);// NOSONAR
 
 		MetricResponse metric = metricsEndpoint.metric("jvm.memory.max", new ArrayList<>());
 		System.out.println("metric (jvm.memory.max) ->" + metric);
 
 		List<AvailableTag> availableTags = metric.getAvailableTags();
 
-		availableTags.forEach(tag -> System.out.println(tag.getTag() + " : " + tag.getValues()));//NOSONAR
+		availableTags.forEach(tag -> System.out.println(tag.getTag() + " : " + tag.getValues()));// NOSONAR
 
 		List<Sample> measurements = metric.getMeasurements();
 		measurements.forEach(sample -> System.out.println(sample.getStatistic() + " : " + sample.getValue()));

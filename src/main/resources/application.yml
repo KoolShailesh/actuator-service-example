@@ -6,6 +6,8 @@ management:
     address: 127.0.0.1
     port: 9001
   endpoint:
+    prometheus:
+      enabled: true
     beans:
       enabled: true
     health:
