@@ -11,12 +11,17 @@ management:
     address: 127.0.0.1
     port: 9001
   endpoint:
+    metrics:
+      enabled: true
     prometheus:
       enabled: true
     beans:
       enabled: true
     health:
       show-details: always
+  metrics:
+    enable:
+     cache.put: true
   endpoints:
     enabled-by-default: true
     web:
