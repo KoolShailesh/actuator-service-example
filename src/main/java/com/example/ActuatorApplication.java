@@ -13,8 +13,12 @@ import org.springframework.boot.actuate.metrics.MetricsEndpoint.ListNamesRespons
 import org.springframework.boot.actuate.metrics.MetricsEndpoint.MetricResponse;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint.Sample;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
 
+import com.example.cacheregister.SpringProperties;
+
+@EnableConfigurationProperties({SpringProperties.class})
 @SpringBootApplication
 @EnableCaching
 public class ActuatorApplication {
