@@ -1,8 +1,11 @@
 package com.example.actuatorservice;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.metrics.MetricsEndpoint;
@@ -23,10 +26,20 @@ public class HelloWorldController {
 
 	@Autowired
 	private MetricsEndpoint metricsEndpoint;
+	
+	
+//	@Autowired
+//	private DataSource dataosurce;
 
 	@GetMapping("/hello-world")
 	@ResponseBody
 	public Greeting sayHello(@RequestParam(name = "name", required = false, defaultValue = "Stranger") String name) {
+		
+//		try {
+//			System.out.println(dataosurce.getConnection());
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
 

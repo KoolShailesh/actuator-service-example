@@ -2,7 +2,13 @@ server:
   port: 9000
 
 spring:
-  cache:
+# datasource:
+#    name: datasource
+#    username: postgres
+#    password: postgres
+#    url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
+#    driver-class-name: org.postgresql.Driver
+ cache:
     cache-names:
     - books
     
@@ -10,6 +16,12 @@ management:
   server:
     address: 127.0.0.1
     port: 9001
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: true
+    
   endpoint:
     metrics:
       enabled: true
@@ -18,7 +30,9 @@ management:
     beans:
       enabled: true
     health:
+      enabled: true
       show-details: always
+      show-components: always
   metrics:
     enable:
      cache.put: true
