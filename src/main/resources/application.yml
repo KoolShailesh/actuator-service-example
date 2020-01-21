@@ -1,6 +1,9 @@
 server:
   port: 9000
 
+info:
+  owner: Shailesh
+  
 spring:
 # datasource:
 #    name: datasource
@@ -8,10 +11,12 @@ spring:
 #    password: postgres
 #    url: jdbc:postgresql://localhost:5432/mylocal?currentSchema=shaileshtest
 #    driver-class-name: org.postgresql.Driver
+ application:
+    name: Actuator Application 
  cache:
     cache-names:
     - books
-    
+  
 management:
   server:
     address: 127.0.0.1
@@ -33,6 +38,8 @@ management:
       enabled: true
       show-details: always
       show-components: always
+    shutdown:
+      enabled: true
   metrics:
     enable:
      cache.put: true
@@ -42,3 +49,6 @@ management:
       exposure:
         include:
         - "*"
+  info:
+    build:
+      enabled: true
