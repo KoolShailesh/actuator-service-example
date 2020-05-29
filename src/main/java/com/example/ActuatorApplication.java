@@ -15,12 +15,14 @@ import org.springframework.boot.actuate.metrics.MetricsEndpoint.Sample;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.example.cacheregister.SpringProperties;
 
 @EnableConfigurationProperties({SpringProperties.class})
 @SpringBootApplication
 @EnableCaching
+@EnableScheduling
 public class ActuatorApplication {
 
 	@Autowired
